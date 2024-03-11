@@ -1,0 +1,26 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{6998-thm}
+%\RequirePackage{fullpage,graphics,latexsym,url}
+\RequirePackage{amsfonts,amsmath,amssymb,amstext,amsthm}
+
+%%--Theorems-&-Definitions--------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{fact}{Fact}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{observation}{Observation}
+\newtheorem{assumption}{Assumption}
+\newtheorem{example}{Example}
+\newtheorem{notation}{Notation}
+\newtheorem{intuition}{Intuition}
+\newtheorem{recall}{Recall}
+\newtheorem{idea}{Idea}
+\newenvironment{proofsketch}{\noindent \textbf{Proof sketch:}\nopagebreak[2]}{\hfill{$\qed$} \medskip}
+%\newenvironment{proof}{\noindent {\em Proof.}}{\medskip}
+\def\squareforqed{\hbox{\(\blacksquare\)}}
+\def\qed{\ifmmode\squareforqed\else{\unskip\nobreak\hfill\penalty50\hskip1em\null\nobreak\hfil\squareforqed\parfillskip=0pt\finalhyphendemerits=0\endgraf}\fi}

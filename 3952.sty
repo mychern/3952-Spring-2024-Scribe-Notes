@@ -1,0 +1,223 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{6998}
+\RequirePackage{amsfonts,amsmath,amssymb,amstext}
+
+%%--Spaces, Algorithms, Sets------------------------------------------
+\def\AA{{\mathbb A}}       %affine space 
+\def\CC{{\mathbb C}}       %complex numbers
+\def\EE{{\mathbb E}}       %expected value
+\def\FF{{\mathbb F}}       %field 
+\def\GG{{\mathbb G}}       %group 
+\def\HH{{\mathbb H}}       %
+\def\II{{\mathbb I}}       %total influence
+\def\NN{{\mathbb N}}       %natural numbers
+\def\PP{{\mathbb P}}       %projective space 
+\def\QQ{{\mathbb Q}}       %rational numbers 
+\def\RR{{\mathbb R}}       %real numbers
+\def\VV{{\mathbb V}}       %projective variety 
+\def\XX{{\mathbb X}}       %
+\def\ZZ{{\mathbb Z}}       %integers 
+\def\AAA{{\mathcal A}}     %adversary, attacker
+\def\BBB{{\mathcal B}}     %another adversary, attacker
+\def\CCC{{\mathcal C}}     %ciphertext-space 
+\def\DDD{{\mathcal D}}     %decryption algorithm 
+\def\EEE{{\mathcal E}}     %encryption algorithm
+\def\FFF{{\mathcal F}}     %
+\def\GGG{{\mathcal G}}     %problem generating algorithm
+\def\HHH{{\mathcal H}}     %hypotehsis class
+\def\JJJ{{\mathcal J}}     %escrow key-generation algorithm
+\def\KKK{{\mathcal K}}     %key-generation algorithm
+\def\LLL{{\mathcal L}}     %
+\def\MMM{{\mathcal M}}     %message-space 
+\def\PPP{{\mathcal P}}     %
+\def\RRR{{\mathcal R}}     %recover algorithm 
+\def\SSS{{\mathcal S}}     %signature algorithm
+\def\TTT{{\mathcal T}}     %
+\def\VVV{{\mathcal V}}     %verification algorithm 
+\def\XXX{{\mathcal X}}     %
+
+%%--Complexity Classes------------------------------------------------
+\newcommand{\NCZ}{\textsf{NC}^\textsf{0}} 
+\newcommand{\ACZ}{\textsf{AC}^\textsf{0}}
+\newcommand{\TCZ}{\textsf{TC}^\textsf{0}}
+\newcommand{\NC}{\textsf{NC}}
+\newcommand{\AC}{\textsf{AC}}
+\newcommand{\TC}{\textsf{TC}}
+\newcommand{\NCO}{\textsf{NC}^\textsf{1}}
+\newcommand{\ACO}{\textsf{AC}^\textsf{1}}
+\newcommand{\logspace}{\textsf{L}}
+\newcommand{\RL}{\textsf{RL}} 
+\newcommand{\NL}{\textsf{NL}}
+\newcommand{\coNL}{\textsf{coNL}} 
+\newcommand{\polytime}{\textsf{P}}
+\newcommand{\prP}{\textsf{prP}}
+\newcommand{\ZPP}{\textsf{ZPP}} 
+\newcommand{\RP}{\textsf{RP}}
+\newcommand{\prRP}{\textsf{prRP}}
+\newcommand{\coRP}{\textsf{coRP}} 
+\newcommand{\BPP}{\textsf{BPP}}
+\newcommand{\prBPP}{\textsf{prBPP}}
+\newcommand{\PZK}{\textsf{PZK}} 
+\newcommand{\PZKC}{\textsf{PZKC}}
+\newcommand{\HVSZK}{\textsf{HVSZK}} 
+\newcommand{\SZK}{\textsf{SZK}} 
+\newcommand{\SZKC}{\textsf{SZKC}}
+\newcommand{\NP}{\textsf{NP}} 
+\newcommand{\prNP}{\textsf{prNP}} 
+\newcommand{\NPC}{\textsf{NPC}}
+\newcommand{\coNP}{\textsf{coNP}} 
+\newcommand{\AM}{\textsf{AM}}
+\newcommand{\coAM}{\textsf{coAM}} 
+\newcommand{\CZK}{\textsf{CZK}}
+\newcommand{\linexp}{\textsf{E}} 
+\newcommand{\EXP}{\textsf{EXP}} 
+\newcommand{\NEXP}{\textsf{NEXP}} 
+\newcommand{\PSPACE}{\textsf{PSPACE}}
+\newcommand{\IP}{\textsf{IP}}
+\newcommand{\TIME}{\textsf{TIME}}
+\newcommand{\DTIME}{\textsf{DTIME}}
+\newcommand{\NTIME}{\textsf{NTIME}}
+\newcommand{\PCP}{\textsf{PCP}}
+\newcommand{\BQP}{\textsf{BQP}}
+
+%%--Crypto-----------------------------------------------------------}
+\newcommand{\Adv}{\textsf{Adv}}
+
+%%--Formatting-------------------------------------------------------}
+\def\bege{\begin{enumerate}}
+\def\ende{\end{enumerate}}
+\def\begi{\begin{itemize}}
+\def\endi{\end{itemize}}
+\def\begd{\begin{description}}
+\def\endd{\end{description}}
+\def\begea{\begin{eqnarray*}}
+\def\endea{\end{eqnarray*}}
+\def\begean{\begin{eqnarray}}
+\def\endean{\end{eqnarray}}
+\def\fussytwo{\fussy \emergencystretch 0 pt}
+
+%%--Miscellaneous-Math------------------------------------------------
+\def\through{{,\dotsc,}}   
+\def\bitset{{\{0,1\}}}    %bit set
+\def\zeroone{{\{0,1\}}}    %bit set
+\def\zo{{\{0,1\}}}    %bit set
+\def\oo{{\{+1,-1\}}}    %bit set
+\def\oton{{\{1,\ldots,n\}}} %the set 1 through n
+\def\to{{\rightarrow}}
+\def\xor{{\oplus}}         %+ mod 2
+\def\poly{\mathop{\rm{poly}}\nolimits}
+\def\polylog{\mathop{\rm{polylog}}\nolimits}
+\def\size{{\mathrm{size}}} 
+\def\sign{{\mathrm{sign}}} 
+\def\bra{{\langle}}        %
+\def\ket{{\rangle}}        %
+\def\eps{{\epsilon}}        %
+\def\E{\mathop{\mathbb{E}}\displaylimits}   %expected value
+\def\Var{\mathop{\mathrm{Var}}\displaylimits}   %variance
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%\newcommand{\Var}{{\mathrm{Var}}}
+\newcommand{\Vr}{{\mathrm{Vr}}}
+\newcommand{\eqdef}{\stackrel{\textrm{def}}{=}}
+\newcommand{\compind}{\stackrel{\textrm{c}}{\equiv}}
+\newcommand{\inr}{\in_{\mbox{\tiny R}}}
+\newcommand{\getsr}{\gets_{\mbox{\tiny R}}}
+\newcommand{\st}{\mbox{ s.t. }}
+\newcommand{\ceil}[1]{{\lceil{#1}\rceil}}
+\newcommand{\floor}[1]{{\lfloor{#1}\rfloor}}
+\newcommand{\angles}[1]{\langle #1 \rangle}
+\newcommand{\pair}[2]{\langle #1,#2 \rangle}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\Abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\Norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\paren}[1]{(#1 )}
+\newcommand{\Paren}[1]{\left(#1 \right )}
+\newcommand{\brac}[1]{[#1 ]}
+\newcommand{\Brac}[1]{\left[#1 \right]}
+\newcommand{\inv}{^{-1}}
+\newcommand{\im}{{\mathrm{Im}}}
+\newcommand{\Ker}{{\mathrm{Ker}}}
+\newcommand{\Span}{{\mathrm{Span}}}
+\newcommand{\Syl}{{\mathrm{Syl}}}  %Sylvester
+\newcommand{\Res}{{\mathrm{Res}}}  %Resultant
+\newcommand{\Inf}{{\mathrm{Inf}}}  %Influence
+\newcommand{\XInf}{{\mathrm{XInf}}}  %Cross-Influence
+\newcommand{\maj}{{\mathrm{maj}}}  %majority
+\newcommand{\PAR}{{\mathrm{PAR}}}
+\newcommand{\Tribes}{{\mathrm{Tribes}}}
+\newcommand{\Hom}{{\mathrm{Hom}}}  %set of group homomorphisms
+\newcommand{\sqdim}{{\mathrm{SQdim}}}  %SQ dimension
+\newcommand{\fcoef}{{\hat{f}}}     %Fourier coefficient of f
+\newcommand{\gcoef}{{\hat{g}}}     %Fourier coefficient of g
+\newcommand{\hcoef}{{\hat{h}}}     %Fourier coefficient of h
+\newcommand{\fhat}{{\hat{f}}}     %Fourier coefficient of f
+\newcommand{\ghat}{{\hat{g}}}     %Fourier coefficient of g
+\newcommand{\hhat}{{\hat{h}}}     %Fourier coefficient of h
+\newcommand{\lsb}{{\mathrm{lsb}}}  %least significant bit
+\newcommand{\msb}{{\mathrm{msb}}}  %most significant bit
+\newcommand{\rank}{{\mathrm{rank}}}  %
+\newcommand{\Spec}{{\mathrm{Spec}}}  %
+\newcommand{\ind}{{\textbf{1}}}    %indicator function
+\newcommand{\Ind}{\mathbb I}
+\def\AND{{\textsf{AND}}}
+\def\OR{{\textsf{OR}}}
+\def\NOT{{\textsf{NOT}}}
+\def\XOR{{\textsf{XOR}}}
+\def\FALSE{{\textsc{false}}}
+\def\TRUE{{\textsc{true}}}
+
+\def\CNOT{{\textsf{CNOT}}}
+
+%%--MATH-----------------------------------------------}
+\newcommand{\bk}[2]{\langle#1|#2\rangle}
+\newcommand{\kb}[2]{|#1\rangle\langle#2|}
+\newcommand{\Bra}[1]{\langle #1|}
+\newcommand{\Ket}[1]{|#1\rangle}
+\newcommand{\Sum}[3]{\overset{#3}{\underset{#1=#2}{\sum}}}
+\newcommand{\Trace}[1]{\textsf{Tr}(#1)}
+\newcommand{\Det}[1]{\textsf{Det}(#1)}
+% Objects (such as groups, etc.)
+\newcommand{\SO}{\textsf{SO}}
+
+%%--Miscellaneous-Text-----------------------------------------------}
+\def\accept{{\emph{\texttt{accept}}}} 
+\def\reject{{\emph{\texttt{reject}}}} 
+%\def\fail{{\texttt{fail}}}
+\def\yes{{\textsc{yes}}} 
+\def\no{{\textsc{no}}}
+\def\fail{{\textsc{fail}}}
+\def\view{{\textsc{view}}}
+\def\output{{\textsc{output}}}
+\newcommand{\ie}{{\it i.e.,\ }}
+\newcommand{\Ie}{{\it I.e.,\ }}
+\newcommand{\eg}{{\it e.g.,\ }}
+\newcommand{\Eg}{{\it E.g.,\ }}
+\newcommand{\etal}{{\it et al.\ }}
+\newcommand{\NB}{{\it N.B.:\ }}
+\newcommand{\ignore}[1]{}
+\newcommand{\hnote}[1]{\footnote{{\sf [Homin: {#1}\sf ] }}}
+\newcommand{\hfoot}[1]{\footnote{{\sf [Homin: {#1}\sf ] }}}
+%\newcommand{\hnote}[1]{\marginpar{\small\sf Homin: {#1}}}
+\newcommand{\prt}[1]{\left(#1\right)}   % prt for parenthesis.
+\newcommand{\sprt}[1]{\left[#1\right]}  % Square prt.
+\newcommand{\lr}[1]{\langle#1\rangle}
+
+
+%%-------------------------------------------------------------------}
+% boaz's draft box
+\newcommand{\draftbox}{\begin{center}
+  \fbox{%
+    \begin{minipage}{2in}%
+      \begin{center}%
+        \begin{Large}%
+          \text{Work in Progress}%
+        \end{Large}\\
+        !`Please do not distribute!%
+      \end{center}%
+    \end{minipage}%
+  }%
+\end{center}
+\vspace{0.2cm}}
+%%-------------------------------------------------------------------}
